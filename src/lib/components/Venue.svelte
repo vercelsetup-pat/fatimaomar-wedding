@@ -22,16 +22,16 @@
 
 	<!-- Content -->
 	<div class="relative z-[3] px-[46px] pb-[42px] pt-[15px] text-center">
-		<div class="mt-4">
+		<div class="my-4">
 			<FadeIn><h1 class="h1 text-white" class:arabic={$language === "ar"} class:english={$language === "en"}>{translations[$language].venue}</h1></FadeIn>
 			<FadeIn>
-				<h2 class="h2 text-white" >
+				<h2 class="h2 text-white mt-2">
 					{translations[$language].stepCloser}<br />
 					{translations[$language].celebrateTogether}
 				</h2>
 			</FadeIn>
 		</div>
-		<section class="details-section">
+		<section >
 			<FadeIn><h1 class="h1 text-white" class:arabic={$language === "ar"} class:english={$language === "en"}>{translations[$language].details}</h1></FadeIn>
 			<FadeIn>
 				<h2 class=" text-white mt-4">
