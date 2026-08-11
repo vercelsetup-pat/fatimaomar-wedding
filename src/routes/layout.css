@@ -22,17 +22,382 @@
     line-height: 1.3; 
 }
 
-label{
+.rsvp-section {
+    width: 100%;
+    min-height: 100vh;
+
+    background: var(--white);
+
+    color: var(--primary);
+}
+
+
+.rsvp-container {
+    width: 100%;
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    padding: 55px 34px 70px;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.rsvp-header {
+    text-align: center;
+}
+
+
+.rsvp-eyebrow {
+    margin: 0;
+
     font-family: Arial, sans-serif;
     font-size: 11px;
-    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.4;
+
+    color: var(--primary);
+
+    letter-spacing: 0;
 }
-.input-wrapper{
-    border: 1px solid var(--primary);
-    display:flex;
+
+
+.rsvp-header h1 {
+    margin: 10px 0 12px;
+
+    font-family: "Italianno", cursive;
+
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 0.9;
+
+    color: var(--primary);
+}
+
+
+.rsvp-description {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.45;
+
+    color: var(--primary);
+}
+
+
+/* =========================
+   NAME / PHONE / EMAIL
+   ========================= */
+
+.form-input {
+    width: 100%;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: transparent !important;
+
+    border: none;
+    border-bottom: 1.5px solid var(--primary);
+
+    padding: 1.4rem 0 0.5rem;
+
+    color: var(--primary);
+
+    outline: none;
+    box-shadow: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    transition: border-color 0.25s ease;
+}
+
+
+.form-input:focus {
+    background: transparent !important;
+
+    border-bottom-color: var(--primary);
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+.form-label {
+    position: absolute;
+
+    left: 0;
+    top: 1.35rem;
+
+    color: var(--primary);
+
+    font-family: "Italianno", cursive;
+    font-size: 18px;
+    font-weight: 400;
+
+    pointer-events: none;
+
+    transform-origin: left top;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    transform: translateY(-1rem) scale(0.8);
+}
+
+
+/* =========================
+   ATTENDANCE
+   ========================= */
+
+.attendance-tabs {
+    display: flex;
+
+    width: 100%;
+
+    height: 58px;
+
+    border: 1px solid #E7D9D7;
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    background: #FCF8F5;
+}
+
+
+.attendance-tabs button {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.attendance-tabs button.active {
+    background: var(--primary);
+
+    color: white;
+}
+
+
+/* =========================
+   NUMBER OF GUESTS
+   ========================= */
+
+.guest-field {
+    width: 100%;
+}
+
+
+.guest-field label,
+.message-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-family: "Italianno", cursive;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+
+.guest-field input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    background: transparent;
+
+    border: 1.5px solid var(--primary);
+    border-radius: 8px;
+
+    color: var(--primary);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.guest-field input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(157, 90, 79, 0.08);
+}
+
+
+/* Remove number arrows */
+
+.guest-field input::-webkit-inner-spin-button,
+.guest-field input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.guest-field input[type="number"] {
+    appearance: textfield;
+}
+
+
+/* =========================
+   MESSAGE
+   ========================= */
+
+.message-field {
+    width: 100%;
+}
+
+
+.message-field textarea {
+    width: 100%;
+
+    min-height: 125px;
+
+    padding: 12px 14px;
+
+    background: transparent;
+
+    border: 1.5px solid var(--primary);
+    border-radius: 8px;
+
+    color: var(--primary);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+
+    outline: none;
+
+    resize: none;
+
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.message-field textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(157, 90, 79, 0.08);
+}
+
+
+/* =========================
+   SUBMIT
+   ========================= */
+
+.submit-button {
+    display: block;
+
+    width: 100%;
     height: 55px;
-    align-items: center;
-    border-radius: 10px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+.submit-button:hover {
+    background: #A96559;
+}
+
+
+.submit-button:active {
+    transform: scale(0.99);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 500px) {
+
+    .rsvp-container {
+        max-width: 420px;
+
+        padding: 48px 34px 65px;
+    }
+
+
+    .rsvp-eyebrow {
+        font-size: 10px;
+    }
+
+
+    .rsvp-header h1 {
+        font-size: 48px;
+    }
+
+
+    .rsvp-description {
+        font-size: 10px;
+    }
+
+
+    .form-label {
+        font-size: 17px;
+    }
+
+
+    .attendance-tabs button {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 500px){
