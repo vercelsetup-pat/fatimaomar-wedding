@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import FadeIn from "$lib/components/FadeIn.svelte";
+    import { language } from "$lib/stores/languages";
+    import { translations } from "$lib/i18n/translations";
 
     let days = $state(0);
     let hours = $state(0);
@@ -58,24 +60,24 @@
 
 <section class="box-border flex w-full flex-col items-center bg-white px-5 py-16 text-center">
     <div class="space-y-4">
-        <FadeIn><h1 class="h1 text-(--secondary)">Dear Family and Friends</h1></FadeIn>
+        <FadeIn><h1 class="h1 text-(--secondary)">{translations[$language].countitle1}</h1></FadeIn>
         <FadeIn>
             <h2>
-                WE ARE DELIGHT TO INVITE YOU TO CELEBRATE<br />
-                OUR WEDDING WITH US. JOIN US FOR A BEAUTIFUL<br />
-                DAY FILLED WITH LOVE JOY &amp; UNFORGETTABLE<br />
-                MEMORIES. CAN’T WAIT FOR THIS SPECIAL<br />
-                MOMENT WITH YOU
+                {translations[$language].countitle2}<br />
+                {translations[$language].countitle3}<br />
+                {translations[$language].countitle4}<br />
+                {translations[$language].countitle5}<br />
+                {translations[$language].countitle6}
             </h2>
         </FadeIn>
     </div>
 
     <div class="space-y-4 mt-6">
-       <FadeIn><h1 class="h1 text-(--secondary)">Count down</h1></FadeIn>
+       <FadeIn><h1 class="h1 text-(--secondary)"> {translations[$language].countDown}</h1></FadeIn>
        <FadeIn>
             <h2 class="h2 text-(--primary)">
-                EVERY MOMENT BRING US ONE STEP CLOSER TO<br />
-                CELEBRATING TOGETHER
+                {translations[$language].moment}<br />
+                {translations[$language].celebrate}
             </h2>
         </FadeIn>
     </div>
@@ -83,24 +85,22 @@
     <div class="countdown">
         <div class="count-item">
             <FadeIn><span class="number">{formatNumber(days)}</span></FadeIn>
-             <FadeIn><span class="label">DAYS</span></FadeIn>
+             <FadeIn><span class="label">{translations[$language].days}</span></FadeIn>
         </div>
 
         <div class="count-item">
             <FadeIn><span class="number">{formatNumber(hours)}</span></FadeIn>
-            <FadeIn><span class="label">HOURS</span></FadeIn>
+            <FadeIn><span class="label">{translations[$language].hours}</span></FadeIn>
         </div>
 
-       
         <div class="count-item">
             <FadeIn><span class="number">{formatNumber(minutes)}</span></FadeIn>
-            <FadeIn><span class="label">MINUTES</span></FadeIn>
+            <FadeIn><span class="label">{translations[$language].minutes}</span></FadeIn>
         </div>
 
-        
         <div class="count-item">
             <FadeIn><span class="number">{formatNumber(seconds)}</span></FadeIn>
-            <FadeIn><span class="label"> SECONDS </span></FadeIn>
+            <FadeIn><span class="label"> {translations[$language].seconds} </span></FadeIn>
         </div>
     </div>
 </section>
