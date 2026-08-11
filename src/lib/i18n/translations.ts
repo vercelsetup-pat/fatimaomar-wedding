@@ -23,15 +23,16 @@ export const translations = {
         rsvptext2: "Please let us know if you will be joining us for this beautiful celebration.",
         namePlaceholder: "Your Name",
         emailPlaceholder: "Your Email",
-        phonePlaceholder: "+961 ...",
+        phonePlaceholder: "Phone number",
         guestsPlaceholder: "Number of Guests",
         messagePlaceholder: "Leave us a little note...",
         attending: "Attending",
-        accept: "Accept",
-        decline: "Decline",
+        accept: "Jofully Aceept",
+        decline: "Regretfully decline",
         numguests: "Number of Guests",
-        message: "Message",
-        confirm: "Confirm"
+        message: "Message to the Couple",
+        message_placeholder: "Share your wishes with the happy couple...",
+        confirm: "Confirm Your RSVP"
 
     },
     ar: {
@@ -58,14 +59,15 @@ export const translations = {
         rsvptext2: "يرجى إعلامنا إذا كنتم ستشاركوننا هذه الفرحة الجميلة.",
         namePlaceholder: "الاسم الكامل",
         emailPlaceholder: "البريد الإلكتروني",
-        phonePlaceholder: "+961 ...",
+        phonePlaceholder: "رقم الهاتف",
         guestsPlaceholder: "عدد الضيوف",
         messagePlaceholder: "اتركوا لنا رسالة صغيرة...",
         attending: "الحضور",
-        accept: "قبول",
-        decline: "اعتذار",
+        accept:"مقبول",
+        decline: "أعتذر عن عدم القبول",
         numguests: "عدد الضيوف",
-        message: "رسالة",
+        message: "رسالة إلى العروسين",
+        message_placeholder: "شارك العروسين السعيدين أمنياتك...",
         confirm:"تاكيد الحضور"
 
     }

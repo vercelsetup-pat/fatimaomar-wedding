@@ -23,15 +23,15 @@
     </div>
 
     <div class="field">
-        <FadeIn><input id="email" type="email" dir="ltr" placeholder={translations[$language].emailPlaceholder}/></FadeIn>
+        <FadeIn><input id="email" type="email" dir={$language === "ar" ? "rtl" : "ltr"} placeholder={translations[$language].emailPlaceholder}/></FadeIn>
     </div>
 
     <div class="field">
-        <FadeIn><input id="phoneNumber" type="tel"  dir="ltr" placeholder={translations[$language].phonePlaceholder}/></FadeIn>
+        <FadeIn><input id="phoneNumber" type="tel"  dir={$language === "ar" ? "rtl" : "ltr"} placeholder={translations[$language].phonePlaceholder}/></FadeIn>
     </div>
 
     <div class="attendance">
-        <FadeIn><span class="field-label">{translations[$language].attending} </span></FadeIn>
+        <FadeIn><span class="field-label" dir={$language === 'ar' ? 'rtl' : 'ltr'}>{translations[$language].attending} </span></FadeIn>
         <FadeIn><div class="attendance-buttons">
             <button type="button"> {translations[$language].accept}</button>
             <button type="button"> {translations[$language].decline}</button>
@@ -40,22 +40,23 @@
 
     <!-- Guests -->
     <div class="field">
-       	<FadeIn><label for="guests">{translations[$language].numguests}</label></FadeIn>
+       	<FadeIn><label for="guests" dir={$language === 'ar' ? 'rtl' : 'ltr'}>{translations[$language].numguests}</label></FadeIn>
     	<FadeIn><input id="number" type="number" dir="ltr"/></FadeIn>
     </div>
 
 
     <!-- Message -->
     <div class="field message-field">
-    	<FadeIn><label for="message">{translations[$language].message}</label></FadeIn>
+    	<FadeIn><label for="message" dir={$language === 'ar' ? 'rtl' : 'ltr'}>{translations[$language].message}</label></FadeIn>
 
        	<FadeIn><textarea
             id="message"
             bind:value={message}
-            placeholder="Leave us a little note..."
+            placeholder={translations[$language].message_placeholder} 
+			dir={$language === 'ar' ? 'rtl' : 'ltr'}
         ></textarea></FadeIn>
     </div>
-    <FadeIn><button class="submit-button" type="submit">Confirm</button></FadeIn>
+    <FadeIn><button class="submit-button" type="submit">{translations[$language].confirm}</button></FadeIn>
 </div>
 
 <style>
