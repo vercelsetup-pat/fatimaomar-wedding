@@ -111,65 +111,121 @@
 
 
 <style>
+
     .countdown {
         width: min(100%, 420px);
         margin-top: 45px;
+        padding-inline: 4px;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 15px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        box-sizing: border-box;
     }
 
     .count-item {
+        min-width: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
     }
 
-
     .number {
-       font-family: "Italianno", cursive;;
-        font-size: clamp(42px, 7vw,58px );
+        display: block;
+        font-family: "Italianno", cursive;
+        font-size: clamp(34px, 9vw, 58px);
         font-weight: 400;
         line-height: 1;
         color: var(--primary);
+        white-space: nowrap;
+        box-sizing: border-box;
     }
 
 
     .label {
+        display: block;
         margin-top: 8px;
-        font-size: 10px;
+        font-family: inherit;
+        font-size: clamp(8px, 2.2vw, 10px);
         font-weight: 400;
-        letter-spacing: 1px;
         line-height: 1;
+        letter-spacing: clamp(0.2px, 0.25vw, 1px);
         color: var(--primary);
+        white-space: nowrap;
+        box-sizing: border-box;
     }
 
-
-    @media (max-width: 500px) {
+    @media (max-width: 768px) {
         .countdown {
-            width: 100%;
-            column-gap: 8px;
-            margin-top: 40px;
+            width: min(100%, 420px);
+            margin-top: 42px;
+            padding-inline: 6px;
         }
+
         .number {
-            font-size: 42px;
+            font-size: clamp(38px, 8vw, 50px);
         }
+
         .label {
             margin-top: 7px;
-            font-size: 10px;
+            font-size: 9px;
             letter-spacing: 0.5px;
         }
     }
 
-
-    @media (max-width: 350px) {
+    @media (max-width: 500px) {
         .countdown {
-            column-gap: 4px;
+            width: 100%;
+            max-width: 420px;
+            margin-top: 40px;
+            padding-inline: 2px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
+
+        .count-item {
+            min-width: 0;
+        }
+
         .number {
-            font-size: 36px;
+            font-size: clamp(34px, 11vw, 44px);
+            line-height: 1;
+        }
+
+        .label {
+            margin-top: 7px;
+
+            font-size: 9px;
+            letter-spacing: 0.3px;
+            line-height: 1;
         }
     }
 
+    @media (max-width: 380px) {
+        .countdown {
+            padding-inline: 0;
+        }
+
+        .number {
+            font-size: clamp(30px, 10.5vw, 39px);
+        }
+
+        .label {
+            margin-top: 6px;
+            font-size: 8px;
+            letter-spacing: 0.2px;
+        }
+    }
+
+    @media (max-width: 330px) {
+        .number {
+            font-size: 30px;
+        }
+
+        .label {
+            font-size: 7px;
+            letter-spacing: 0;
+        }
+    }
 </style>
