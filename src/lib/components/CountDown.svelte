@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import FadeIn from "$lib/components/FadeIn.svelte";
 
     let days = $state(0);
     let hours = $state(0);
@@ -59,53 +60,55 @@
 
 <section class="box-border flex w-full flex-col items-center bg-white px-5 py-16 text-center">
     <div class="space-y-4">
-        <h1 class="h1 text-(--secondary)">Dear Family and Friends</h1>
-        <h2 class="h2 text-(--primary)">
-            WE ARE DELIGHT TO INVITE YOU TO CELEBRATE<br />
-            OUR WEDDING WITH US. JOIN US FOR A BEAUTIFUL<br />
-            DAY FILLED WITH LOVE JOY &amp; UNFORGETTABLE<br />
-            MEMORIES. CAN’T WAIT FOR THIS SPECIAL<br />
-            MOMENT WITH YOU
-        </h2>
-
+        <FadeIn><h1 class="h1 text-(--secondary)">Dear Family and Friends</h1></FadeIn>
+        <FadeIn>
+            <h2>
+                WE ARE DELIGHT TO INVITE YOU TO CELEBRATE<br />
+                OUR WEDDING WITH US. JOIN US FOR A BEAUTIFUL<br />
+                DAY FILLED WITH LOVE JOY &amp; UNFORGETTABLE<br />
+                MEMORIES. CAN’T WAIT FOR THIS SPECIAL<br />
+                MOMENT WITH YOU
+            </h2>
+        </FadeIn>
     </div>
 
     <div class="space-y-4 mt-6">
-        <h1 class="h1 text-(--secondary)"> Count down</h1>
-        <h2 class="h2 text-(--primary)">
-            EVERY MOMENT BRING US ONE STEP CLOSER TO<br />
-            CELEBRATING TOGETHER
-        </h2>
+       <FadeIn><h1 class="h1 text-(--secondary)">Count down</h1></FadeIn>
+       <FadeIn>
+            <h2 class="h2 text-(--primary)">
+                EVERY MOMENT BRING US ONE STEP CLOSER TO<br />
+                CELEBRATING TOGETHER
+            </h2>
+        </FadeIn>
     </div>
 
     <div class="countdown">
         <div class="count-item">
-            <span class="number">{formatNumber(days)}</span>
-            <span class="label">DAYS</span>
+            <FadeIn><span class="number">{formatNumber(days)}</span></FadeIn>
+             <FadeIn><span class="label">DAYS</span></FadeIn>
         </div>
 
         <div class="count-item">
-            <span class="number">{formatNumber(hours)}</span>
-            <span class="label">HOURS</span>
+            <FadeIn><span class="number">{formatNumber(hours)}</span></FadeIn>
+            <FadeIn><span class="label">HOURS</span></FadeIn>
         </div>
 
        
         <div class="count-item">
-            <span class="number">{formatNumber(minutes)} </span>
-            <span class="label">MINUTES</span>
+            <FadeIn><span class="number">{formatNumber(minutes)}</span></FadeIn>
+            <FadeIn><span class="label">MINUTES</span></FadeIn>
         </div>
 
         
         <div class="count-item">
-            <span class="number">{formatNumber(seconds)}</span>
-            <span class="label"> SECONDS </span>
+            <FadeIn><span class="number">{formatNumber(seconds)}</span></FadeIn>
+            <FadeIn><span class="label"> SECONDS </span></FadeIn>
         </div>
     </div>
 </section>
 
 
 <style>
-
     .countdown {
         width: min(100%, 420px);
         margin-top: 45px;
