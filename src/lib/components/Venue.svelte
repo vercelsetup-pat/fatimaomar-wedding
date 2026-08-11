@@ -22,7 +22,7 @@
 
 	<!-- Content -->
 	<div class="relative z-[3] px-[46px] pb-[42px] pt-[15px] text-center">
-		<div class="space-y-4">
+		<div class="mt-4">
 			<FadeIn><h1 class="h1 text-white" class:arabic={$language === "ar"} class:english={$language === "en"}>{translations[$language].venue}</h1></FadeIn>
 			<FadeIn>
 				<h2 class="h2 text-white" >
@@ -34,9 +34,9 @@
 		<section class="details-section">
 			<FadeIn><h1 class="h1 text-white" class:arabic={$language === "ar"} class:english={$language === "en"}>{translations[$language].details}</h1></FadeIn>
 			<FadeIn>
-				<h2 class="text-lg text-white">
+				<h2 class=" text-white mt-4">
 					7:00 PM<br />
-					Jupiter Bnachii<br/>
+					Jupiter Bnachei<br/>
 				</h2>
 			</FadeIn>
 		</section>
