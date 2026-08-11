@@ -7,138 +7,243 @@
 </script>
 
 
-<div class="rsvp-section">
-    <div class="rsvp-container">
+<div class="rsvp-form " >
 
-        <!-- Header -->
-        <section class="rsvp-header">
-            <p class="rsvp-eyebrow">
-                WE LOOK FORWARD TO CELEBRATING WITH YOU
-            </p>
-
-            <h1>Kindly Reply</h1>
-
-            <p class="rsvp-description">
-                Please let us know if you will be joining us<br />
-                for this beautiful celebration.
-            </p>
-        </section>
-
-
-        <!-- Name -->
-        <div class="relative mt-10 w-full">
-            <input
-                type="text"
-                id="name"
-                placeholder=" "
-                required
-                class="form-input peer"
-            />
-
-            <label for="name" class="form-label">
-                Full Name
-            </label>
-        </div>
-
-
-        <!-- Phone -->
-        <div class="relative mt-10 w-full">
-            <input
-                type="tel"
-                id="phone_number"
-                placeholder=" "
-                required
-                class="form-input peer"
-            />
-
-            <label for="phone_number" class="form-label">
-                Phone number
-            </label>
-        </div>
-
-
-        <!-- Email -->
-        <div class="relative mt-10 w-full">
-            <input
-                type="email"
-                id="email"
-                placeholder=" "
-                required
-                class="form-input peer"
-            />
-
-            <label for="email" class="form-label">
-                Email
-            </label>
-        </div>
-
-
-        <!-- Attendance -->
-        <div class="attendance-tabs mt-10">
-            <button
-                type="button"
-                class:active={attendance === "accepted"}
-                onclick={() => (attendance = "accepted")}
-            >
-                Joyfully Accept
-            </button>
-
-            <button
-                type="button"
-                class:active={attendance === "rejected"}
-                onclick={() => (attendance = "rejected")}
-            >
-                Regretfully Decline
-            </button>
-        </div>
-
-
-        <!-- Guest number -->
-        {#if attendance === "accepted"}
-            <div class="guest-field mt-8">
-                <label for="guest_number">
-                    Number of Guests
-                </label>
-
-                <input
-                    type="number"
-                    id="guest_number"
-                    min="1"
-                    max="10"
-                    bind:value={guestNumber}
-                    required
-                />
-            </div>
-        {/if}
-
-
-        <!-- Message -->
-        <div class="message-field mt-8">
-            <label for="message">
-                Message
-            </label>
-
-            <textarea
-                id="message"
-                bind:value={message}
-                rows="5"
-            ></textarea>
-        </div>
-
-
-        <!-- Submit -->
-        <button
-            type="button"
-            class="submit-button mt-8"
-        >
-            {attendance === "accepted"
-                ? "Confirm Attendance"
-                : "Send Response"}
-        </button>
-
+	<div class="text-center ">
+		<h1 class="h1 text-(--primary) mt-6">Kindly Reply</h1>
+		<img src={Envelop}  alt="envelop"  class="w-[150px] h-[150px] object-contain mx-auto "/>
+		<h2 class="h2 text-(--primary)">WE LOOK FORWARD TO CELEBRATING WITH YOU</h2>
+		<h2 class="h2 text-(--primary) mt-3">Please let us know if you will be joining us for this beautiful celebration.</h2>
+	</div>
+ 
+    <div class="field">
+        <input id="fullName" type="text" placeholder="Your Name"/>
     </div>
+
+    <div class="field">
+        <input id="email" type="email" placeholder="Your Email"/>
+    </div>
+
+    <div class="field">
+        <input id="phoneNumber" type="tel" placeholder="+961 ..."/>
+    </div>
+
+    <div class="attendance">
+        <span class="field-label">Attending </span>
+        <div class="attendance-buttons">
+            <button type="button"> Accept</button>
+            <button type="button"> Decline</button>
+        </div>
+    </div>
+
+
+    <!-- Guests -->
+    <div class="field">
+        <label for="guests">Number of Guests</label>
+        <input id="number" type="number"/>
+    </div>
+
+
+    <!-- Message -->
+    <div class="field message-field">
+        <label for="message">Message</label>
+
+        <textarea
+            id="message"
+            bind:value={message}
+            placeholder="Leave us a little note..."
+        ></textarea>
+    </div>
+
+    <button class="submit-button" type="submit"> Kindly Reply </button>
+
 </div>
 
+<style>
+	.rsvp-form {
+		width: 90%;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid #d8b8b2;
+		gap: 22px;
+		padding: 20px;
+		margin-left:20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+
+	.field {
+		position: relative;
+		width: 100%;
+	}
+
+	.field label,
+	.field-label {
+		display: block;
+
+		margin-bottom: 5px;
+
+		color: #9d5a4f;
+
+		font-family: "Italianno", cursive;
+
+		font-size: 17px;
+
+		line-height: 1;
+	}
+
+
+.field input,
+
+.field textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    border: 1px solid #d8b8b2;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    padding: 7px 2px 8px;
+
+    color: #76534e;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #b99b96;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    opacity: 0.8;
+}
+
+
+/* Focus */
+
+.field input:focus,
+
+.field textarea:focus {
+    border-bottom-color: #9d5a4f;
+
+    padding-left: 5px;
+}
+
+
+
+.message-field textarea {
+    min-height: 75px;
+
+    resize: none;
+
+    line-height: 1.5;
+}
+
+
+
+.attendance {
+    width: 100%;
+}
+
+.attendance-buttons {
+    display: flex;
+
+    width: 100%;
+
+    margin-top: 7px;
+
+    border: 1px solid #d8b8b2;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+.attendance-buttons button {
+    flex: 1;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 8px 5px;
+
+    color: #9d5a4f;
+
+    font-family: "Italianno", cursive;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.attendance-buttons button + button {
+    border-left: 1px solid #d8b8b2;
+}
+
+
+
+
+/* -------------------------
+   Submit
+------------------------- */
+
+.submit-button {
+    width: 100%;
+
+    margin-top: 2px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #b6867f;
+
+    color: white;
+
+    font-family: "Italianno", cursive;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.submit-button:hover {
+    background: #9d5a4f;
+
+    transform: translateY(-1px);
+}
+</style>
 
 
 
