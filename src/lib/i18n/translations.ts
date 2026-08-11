@@ -17,7 +17,21 @@ export const translations = {
         stepCloser:"EVERY MOMENT BRING US ONE STEP CLOSER TO",
         celebrateTogether: "CELEBRATING TOGETHER",
         details: "Details",
-        location: "Tap to open the location"
+        location: "Tap to open the location",
+        reply:"Kindly Reply",
+        rsvptext1: "WE LOOK FORWARD TO CELEBRATING WITH YOU",
+        rsvptext2: "Please let us know if you will be joining us for this beautiful celebration.",
+        namePlaceholder: "Your Name",
+        emailPlaceholder: "Your Email",
+        phonePlaceholder: "+961 ...",
+        guestsPlaceholder: "Number of Guests",
+        messagePlaceholder: "Leave us a little note...",
+        attending: "Attending",
+        accept: "Accept",
+        decline: "Decline",
+        numguests: "Number of Guests",
+        message: "Message",
+        confirm: "Confirm"
 
     },
     ar: {
@@ -38,7 +52,21 @@ export const translations = {
         stepCloser: "مع كل لحظة، نقترب أكثر من",
         celebrateTogether: "فرحة الاحتفال معًا",
         details: "التفاصيل",
-        location: "اضغط لفتح الموقع"
+        location: "اضغط لفتح الموقع",
+        reply: "يرجى تأكيد الحضور",
+        rsvptext1: "نتطلع للاحتفال معكم",
+        rsvptext2: "يرجى إعلامنا إذا كنتم ستشاركوننا هذه الفرحة الجميلة.",
+        namePlaceholder: "الاسم الكامل",
+        emailPlaceholder: "البريد الإلكتروني",
+        phonePlaceholder: "+961 ...",
+        guestsPlaceholder: "عدد الضيوف",
+        messagePlaceholder: "اتركوا لنا رسالة صغيرة...",
+        attending: "الحضور",
+        accept: "قبول",
+        decline: "اعتذار",
+        numguests: "عدد الضيوف",
+        message: "رسالة",
+        confirm:"تاكيد الحضور"
 
     }
 };

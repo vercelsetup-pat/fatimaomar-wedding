@@ -1,61 +1,61 @@
 <script lang="ts">
 	import Envelop from "$lib/assets/envelop.png"
 	import FadeIn from "$lib/components/FadeIn.svelte";
-
+	import { language } from "$lib/stores/languages";
+    import { translations } from "$lib/i18n/translations";
     let attendance: "accepted" | "rejected" = "accepted"
     let guestNumber = 1
     let message = ""
 </script>
 
 
-<div class="rsvp-form " >
+<div class="rsvp-form">
 
 	<div class="text-center ">
-		<FadeIn><h1 class="h1 text-(--primary) mt-6">Kindly Reply</h1></FadeIn>
+		<FadeIn><h1 class="h1 text-(--primary) mt-6">{translations[$language].reply}</h1></FadeIn>
 		<FadeIn><img src={Envelop}  alt="envelop"  class="w-[150px] h-[150px] object-contain mx-auto "/></FadeIn>
-		<FadeIn><h2 class="h2 text-(--primary)">WE LOOK FORWARD TO CELEBRATING WITH YOU</h2></FadeIn>
-		<FadeIn><h2 class="h2 text-(--primary) mt-3">Please let us know if you will be joining us for this beautiful celebration.</h2></FadeIn>
+		<FadeIn><h2 class="h2 text-(--primary)">{translations[$language].rsvptext1}</h2></FadeIn>
+		<FadeIn><h2 class="h2 text-(--primary) mt-3">{translations[$language].rsvptext2}</h2></FadeIn>
 	</div>
  
     <div class="field">
-       <FadeIn><input id="fullName" type="text" placeholder="Your Name"/></FadeIn>
+       <FadeIn><input id="fullName" type="text"  dir={$language === "ar" ? "rtl" : "ltr"}  placeholder={translations[$language].namePlaceholder}/></FadeIn>
     </div>
 
     <div class="field">
-        <FadeIn><input id="email" type="email" placeholder="Your Email"/></FadeIn>
+        <FadeIn><input id="email" type="email" dir="ltr" placeholder={translations[$language].emailPlaceholder}/></FadeIn>
     </div>
 
     <div class="field">
-        <FadeIn><input id="phoneNumber" type="tel" placeholder="+961 ..."/></FadeIn>
+        <FadeIn><input id="phoneNumber" type="tel"  dir="ltr" placeholder={translations[$language].phonePlaceholder}/></FadeIn>
     </div>
 
     <div class="attendance">
-        <FadeIn><span class="field-label">Attending </span></FadeIn>
+        <FadeIn><span class="field-label">{translations[$language].attending} </span></FadeIn>
         <FadeIn><div class="attendance-buttons">
-            <button type="button"> Accept</button>
-            <button type="button"> Decline</button>
+            <button type="button"> {translations[$language].accept}</button>
+            <button type="button"> {translations[$language].decline}</button>
         </div></FadeIn>
     </div>
 
-
     <!-- Guests -->
     <div class="field">
-       	<FadeIn><label for="guests">Number of Guests</label></FadeIn>
-    	<FadeIn><input id="number" type="number"/></FadeIn>
+       	<FadeIn><label for="guests">{translations[$language].numguests}</label></FadeIn>
+    	<FadeIn><input id="number" type="number" dir="ltr"/></FadeIn>
     </div>
 
 
     <!-- Message -->
     <div class="field message-field">
-        <FadeIn><label for="message">Message</label></FadeIn>
+    	<FadeIn><label for="message">{translations[$language].message}</label></FadeIn>
 
-       <FadeIn><textarea
+       	<FadeIn><textarea
             id="message"
             bind:value={message}
             placeholder="Leave us a little note..."
         ></textarea></FadeIn>
     </div>
-    <FadeIn><button class="submit-button" type="submit"> Kindly Reply </button></FadeIn>
+    <FadeIn><button class="submit-button" type="submit">Confirm</button></FadeIn>
 </div>
 
 <style>
@@ -69,7 +69,6 @@
 		margin-top: 20px;
 		margin-bottom: 20px;
 	}
-
 
 	.field {
 		position: relative;
