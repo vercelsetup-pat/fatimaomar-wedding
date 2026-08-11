@@ -7,7 +7,7 @@
 
 	function openLocation() {
 		window.open(
-			'https://www.google.com/maps/search/?api=1&query=Wedding+Venue',
+			'https://www.google.com/maps/place/Jupiter/@34.3343169,35.8877776,17z/data=!3m1!4b1!4m6!3m5!1s0x1521f83b63d43f73:0x1238e57f83f6d12d!8m2!3d34.3343169!4d35.8877776!16s%2Fg%2F11g9vsrhqd!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMC4wIKXMDSoASAFQAw%3D%3D',
 			'_blank'
 		);
 
