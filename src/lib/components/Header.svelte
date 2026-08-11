@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { language } from '$lib/stores/languages';
 	import englishInvitation from '$lib/assets/envEn.png';
-	
+	import arabicInvitation from "$lib/assets/envAr.png"
 
 	let visible = $state(false);
 
@@ -19,21 +19,20 @@
 			<div class="language-switch gap-2">
 				<button
 					type="button"
-					class:active={$language === 'en'}
-					onclick={() => language.set('en')}
-					aria-label="Switch to English"
-				>
-					En
-				</button>
-
-				
-				<button
-					type="button"
 					class:active={$language === 'ar'}
 					onclick={() => language.set('ar')}
 					aria-label="Switch to Arabic"
 				>
 					Ar
+				</button>
+
+				<button
+					type="button"
+					class:active={$language === 'en'}
+					onclick={() => language.set('en')}
+					aria-label="Switch to English"
+				>
+					En
 				</button>
 			</div>
 		</div>
@@ -41,8 +40,10 @@
 		<!-- Invitation image -->
 		<!-- svelte-ignore a11y_img_redundant_alt -->
 		<img
-			src={ englishInvitation}
-			alt="image"
+			src={$language === 'ar' ? arabicInvitation : englishInvitation}
+			alt={$language === 'ar'
+				? 'دعوة زفاف جبرين وسيرين'
+				: 'Jebrine and Cyrine wedding invitation'}
 			class="invitation-image"
 		/>
 	</div>
