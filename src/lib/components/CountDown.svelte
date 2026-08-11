@@ -86,23 +86,23 @@
         </FadeIn>
     </div>
 
-    <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-6 relative z-10">
-        <div class="flex flex-col items-center">
+    <div class="countdown">
+        <div class="count-item">
             <span class="number">{formatNumber(days)}</span>
             <span class="label">{translations[$language].days}</span>
         </div>
 
-        <div class="flex flex-col items-center">
+        <div class="count-item">
             <span class="number">{formatNumber(hours)}</span>
             <span class="label">{translations[$language].hours}</span>
         </div>
 
-        <div class="flex flex-col items-center">
+        <div class="count-item">
             <span class="number">{formatNumber(minutes)}</span>
             <span class="label">{translations[$language].minutes}</span>
         </div>
 
-        <div class="flex flex-col items-center">
+        <div class="count-item">
             <span class="number">{formatNumber(seconds)}</span>
             <span class="label"> {translations[$language].seconds} </span>
         </div>
@@ -111,9 +111,31 @@
 
 
 <style>
+    .countdown {
+        width: min(100%, 420px);
+        margin-top: 45px;
+        padding-inline: 4px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .count-item {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        overflow: visible;
+    }
 
     .number {
         display: block;
+
         font-family: "Italianno", cursive;
         font-size: clamp(34px, 9vw, 58px);
         font-weight: 400;
@@ -140,6 +162,12 @@
 
     @media (max-width: 768px) {
 
+        .countdown {
+            width: min(100%, 420px);
+            margin-top: 42px;
+            padding-inline: 6px;
+        }
+
         .number {
             font-size: clamp(38px, 8vw, 50px);
             line-height: 1.25;
@@ -156,6 +184,19 @@
 
     @media (max-width: 500px) {
 
+        .countdown {
+            width: 100%;
+            max-width: 420px;
+            margin-top: 40px;
+            padding-inline: 2px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .count-item {
+            min-width: 0;
+            overflow: visible;
+        }
+
         .number {
             font-size: clamp(34px, 11vw, 44px);
             line-height: 1.25;
@@ -171,6 +212,10 @@
     }
 
     @media (max-width: 380px) {
+
+        .countdown {
+            padding-inline: 0;
+        }
 
         .number {
             font-size: clamp(30px, 10.5vw, 39px);
