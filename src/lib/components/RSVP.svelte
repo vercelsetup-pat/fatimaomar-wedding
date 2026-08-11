@@ -64,7 +64,7 @@
 		width: 90%;
 		display: flex;
 		flex-direction: column;
-		border: 1px solid #d8b8b2;
+	
 		gap: 22px;
 		padding: 20px;
 		margin-left:20px;
