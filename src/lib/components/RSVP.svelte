@@ -145,21 +145,13 @@
 
 .attendance-buttons button {
     flex: 1;
-
     border: none;
-
     background: transparent;
-
     padding: 8px 5px;
-
     color: #9d5a4f;
-
     font-family: "Italianno", cursive;
-
     font-size: 16px;
-
     cursor: pointer;
-
     transition: all 0.25s ease;
 }
 
@@ -167,34 +159,17 @@
     border-left: 1px solid #d8b8b2;
 }
 
-
-
-
-/* -------------------------
-   Submit
-------------------------- */
-
 .submit-button {
     width: 100%;
-
     margin-top: 2px;
-
     padding: 10px 20px;
-
     border: none;
-
     border-radius: 5px;
-
     background: #b6867f;
-
     color: white;
-
     font-family: "Italianno", cursive;
-
     font-size: 17px;
-
     cursor: pointer;
-
     transition:
         background 0.25s ease,
         transform 0.25s ease;
@@ -202,7 +177,6 @@
 
 .submit-button:hover {
     background: #9d5a4f;
-
     transform: translateY(-1px);
 }
 </style>
