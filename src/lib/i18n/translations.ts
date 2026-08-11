@@ -12,7 +12,12 @@ export const translations = {
         days: "DAYS",
         hours: "HOURS",
         minutes: "MINUTES",
-        seconds: "SECONDS"
+        seconds: "SECONDS",
+        venue:"Wedding Venue",
+        stepCloser:"EVERY MOMENT BRING US ONE STEP CLOSER TO",
+        celebrateTogether: "CELEBRATING TOGETHER",
+        details: "Details",
+        location: "Tap to open the location"
 
     },
     ar: {
@@ -28,7 +33,12 @@ export const translations = {
         days: "الأيام",
         hours: "الساعات",
         minutes: "الدقائق",
-        seconds: "الثواني"
+        seconds: "الثواني",
+        venue: "مكان الزفاف",
+        stepCloser: "مع كل لحظة، نقترب أكثر من",
+        celebrateTogether: "فرحة الاحتفال معًا",
+        details: "التفاصيل",
+        location: "اضغط لفتح الموقع"
 
     }
 };
