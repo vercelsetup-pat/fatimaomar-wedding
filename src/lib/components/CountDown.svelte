@@ -62,7 +62,7 @@
     <div class="space-y-4">
         <FadeIn><h1 class="h1 text-(--secondary)">{translations[$language].countitle1}</h1></FadeIn>
         <FadeIn>
-            <h2>
+            <h2 class="h2 text-(--secondary)">
                 {translations[$language].countitle2}<br />
                 {translations[$language].countitle3}<br />
                 {translations[$language].countitle4}<br />
