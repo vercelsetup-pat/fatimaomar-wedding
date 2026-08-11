@@ -111,56 +111,83 @@
 
 
 <style>
-
     .countdown {
         width: min(100%, 420px);
         margin-top: 45px;
         padding-inline: 4px;
+
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0;
+
         box-sizing: border-box;
+        overflow: visible;
     }
 
-   .count-item {
+    .count-item {
         min-width: 0;
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         text-align: center;
         box-sizing: border-box;
+
+        /* Important for Italianno */
         overflow: visible;
     }
 
     .number {
         display: block;
+
         font-family: "Italianno", cursive;
         font-size: clamp(34px, 9vw, 58px);
         font-weight: 400;
+
+        /* Do NOT use line-height: 1 with Italianno */
         line-height: 1.25;
+
         color: var(--primary);
         white-space: nowrap;
+
         box-sizing: border-box;
         overflow: visible;
+
+        /*
+         * Gives the top of the font enough space
+         * so the numbers are not cut.
+         */
         padding-top: 0.08em;
     }
 
-
     .label {
         display: block;
+
         margin-top: 8px;
+
         font-family: inherit;
         font-size: clamp(8px, 2.2vw, 10px);
         font-weight: 400;
-        line-height: 1;
+
+        line-height: 1.2;
+
         letter-spacing: clamp(0.2px, 0.25vw, 1px);
+
         color: var(--primary);
         white-space: nowrap;
+
         box-sizing: border-box;
     }
 
+
+    /* ========================================
+       TABLET / DESKTOP
+       ======================================== */
+
     @media (max-width: 768px) {
+
         .countdown {
             width: min(100%, 420px);
             margin-top: 42px;
@@ -177,20 +204,29 @@
             margin-top: 7px;
             font-size: 9px;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
     }
 
+
+    /* ========================================
+       MOBILE
+       ======================================== */
+
     @media (max-width: 500px) {
+
         .countdown {
             width: 100%;
             max-width: 420px;
             margin-top: 40px;
             padding-inline: 2px;
+
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
         .count-item {
             min-width: 0;
+            overflow: visible;
         }
 
         .number {
@@ -198,34 +234,51 @@
             line-height: 1.25;
             padding-top: 0.08em;
         }
+
         .label {
             margin-top: 7px;
-
             font-size: 9px;
             letter-spacing: 0.3px;
-            line-height: 1;
+            line-height: 1.2;
         }
     }
 
+
+    /* ========================================
+       SMALL MOBILE
+       ======================================== */
+
     @media (max-width: 380px) {
+
         .countdown {
             padding-inline: 0;
         }
 
         .number {
             font-size: clamp(30px, 10.5vw, 39px);
+            line-height: 1.25;
+            padding-top: 0.08em;
         }
 
         .label {
             margin-top: 6px;
             font-size: 8px;
             letter-spacing: 0.2px;
+            line-height: 1.2;
         }
     }
 
+
+    /* ========================================
+       VERY SMALL MOBILE
+       ======================================== */
+
     @media (max-width: 330px) {
+
         .number {
             font-size: 30px;
+            line-height: 1.25;
+            padding-top: 0.08em;
         }
 
         .label {
