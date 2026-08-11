@@ -1,36 +1,19 @@
 <script lang="ts">
 	import venueImage from '$lib/assets/venue.png';
-import LinkedRingsIcon from '@iconify-svelte/game-icons/linked-rings';
+
 	function openLocation() {
 		window.open(
 			'https://www.google.com/maps/search/?api=1&query=Wedding+Venue',
 			'_blank'
 		);
-	}
 
-    	const details = {
-		left: {
-			time: '7:00 PM',
-			venue: 'Jupiter, bnacii',
-			date: '23 August 2026'
-		},
-		right: {
-			time: '7:00 PM',
-			venue: 'Jupiter, bnacii',
-			date: '23 August 2026'
-		}
 	};
 </script>
 
-
 <div class="relative mx-auto min-h-[503px] w-full max-w-[430px] overflow-hidden bg-white">
-
 	<div class="absolute left-0 top-[198px] z-0 h-[calc(100%-198px)] w-full bg-[#b98983]"></div>
 	<div class="image-container">
-		<img
-			src={venueImage}
-			alt="Wedding venue"
-		/>
+		<img src={venueImage} alt="Wedding venue"/>
 	</div>
 
 	<!-- Content -->
@@ -49,19 +32,9 @@ import LinkedRingsIcon from '@iconify-svelte/game-icons/linked-rings';
 			Jupiter Bnachii<br/>
 		</h2>
 		
-
 		</section>
-		<button
-			type="button"
-			class="location-button mt-4"
-			onclick={openLocation}
-		>
-			<svg
-				width="21"
-				height="21"
-				viewBox="0 0 24 24"
-				fill="none"
-			>
+		<button type="button" class="location-button mt-4" onclick={openLocation}>
+			<svg width="21" height="21" viewBox="0 0 24 24" fill="none">
 				<path
 					d="M20 10C20 15 12 22 12 22C12 22 4 15 4 10C4 5.58 7.58 2 12 2C16.42 2 20 5.58 20 10Z"
 					fill="currentColor"
@@ -100,18 +73,13 @@ import LinkedRingsIcon from '@iconify-svelte/game-icons/linked-rings';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
 		gap: 10px;
-
 		width: 100%;
 		height: 47px;
 		border: none;
 		border-radius: 11px;
-
 		background: white;
-
 		color: #ad5f56;
-
 		font-family: 'Montserrat', sans-serif;
 		font-size: 16px;
 		font-weight: 400;
@@ -121,7 +89,6 @@ import LinkedRingsIcon from '@iconify-svelte/game-icons/linked-rings';
 	.location-button svg {
 		flex-shrink: 0;
 	}
-
 
 	@media (max-width: 430px) {
 		
@@ -140,11 +107,11 @@ import LinkedRingsIcon from '@iconify-svelte/game-icons/linked-rings';
 		width: 100%;
 		max-width: 430px;
 		margin: 0 auto;
-		padding-top: 46px;
+		padding-top: 35px;
+		padding-bottom: 35px;
 		text-align: center;
 		color: #a85f57;
 	}
-
 
 	@media (max-width: 430px) {
 
