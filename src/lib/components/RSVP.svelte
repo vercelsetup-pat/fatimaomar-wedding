@@ -81,105 +81,67 @@
 	.field label,
 	.field-label {
 		display: block;
-
 		margin-bottom: 5px;
-
 		color: #9d5a4f;
-
 		font-family: "Italianno", cursive;
-
-		font-size: 17px;
-
+		font-size: 20px;
 		line-height: 1;
 	}
 
 
-.field input,
-
-.field textarea {
-    width: 100%;
-
-    box-sizing: border-box;
-
-    border: none;
-
-    border: 1px solid #d8b8b2;
-
-    border-radius: 0;
-
-    background: transparent;
-
-    padding: 7px 2px 8px;
-
-    color: #76534e;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 13px;
-
-    outline: none;
-
-    transition:
-        border-color 0.25s ease,
-        padding-left 0.25s ease;
-}
+	.field input,
+	.field textarea {
+		width: 100%;
+		box-sizing: border-box;
+		border: none;
+		border: 1px solid #d8b8b2;
+		border-radius: 0;
+		background: transparent;
+		padding: 7px 2px 8px 7px;
+		color: #76534e;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 16px;
+		outline: none;
+		transition:
+			border-color 0.25s ease,
+			padding-left 0.25s ease;
+	}
 
 
-/* Placeholder */
-
-.field input::placeholder,
-.field textarea::placeholder {
-    color: #b99b96;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 12px;
-
-    font-style: italic;
-
-    opacity: 0.8;
-}
+	.field input::placeholder,
+	.field textarea::placeholder {
+		color: #b99b96;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		font-style: italic;
+		opacity: 0.8;
+	}
 
 
-/* Focus */
+	.field input:focus,
+	.field textarea:focus {
+		border-bottom-color: #9d5a4f;
+		padding-left: 5px;
+	}
 
-.field input:focus,
+	.message-field textarea {
+		min-height: 75px;
+		resize: none;
+		line-height: 1.5;
+	}
 
-.field textarea:focus {
-    border-bottom-color: #9d5a4f;
+	.attendance {
+		width: 100%;
+	}
 
-    padding-left: 5px;
-}
-
-
-
-.message-field textarea {
-    min-height: 75px;
-
-    resize: none;
-
-    line-height: 1.5;
-}
-
-
-
-.attendance {
-    width: 100%;
-}
-
-.attendance-buttons {
-    display: flex;
-
-    width: 100%;
-
-    margin-top: 7px;
-
-    border: 1px solid #d8b8b2;
-
-    border-radius: 4px;
-
-    overflow: hidden;
-}
+	.attendance-buttons {
+		display: flex;
+		width: 100%;
+		margin-top: 7px;
+		border: 1px solid #d8b8b2;
+		border-radius: 4px;
+		overflow: hidden;
+	}
 
 .attendance-buttons button {
     flex: 1;
