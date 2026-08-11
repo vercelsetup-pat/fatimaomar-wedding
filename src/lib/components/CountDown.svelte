@@ -86,23 +86,23 @@
         </FadeIn>
     </div>
 
-    <div class="countdown">
-        <div class="count-item">
+    <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-6 relative z-10">
+        <div class="flex flex-col items-center">
             <span class="number">{formatNumber(days)}</span>
             <span class="label">{translations[$language].days}</span>
         </div>
 
-        <div class="count-item">
+        <div class="flex flex-col items-center">
             <span class="number">{formatNumber(hours)}</span>
             <span class="label">{translations[$language].hours}</span>
         </div>
 
-        <div class="count-item">
+        <div class="flex flex-col items-center">
             <span class="number">{formatNumber(minutes)}</span>
             <span class="label">{translations[$language].minutes}</span>
         </div>
 
-        <div class="count-item">
+        <div class="flex flex-col items-center">
             <span class="number">{formatNumber(seconds)}</span>
             <span class="label"> {translations[$language].seconds} </span>
         </div>
