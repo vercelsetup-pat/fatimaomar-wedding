@@ -10,7 +10,6 @@
     let timer: ReturnType<typeof setInterval> | undefined;
     const weddingDate = new Date( 2026, 7, 23, 20, 0, 0 );
 
-
     function updateCountdown() {
         const now = new Date();
 
@@ -56,7 +55,6 @@
     });
     
 </script>
-
 
 <section class="box-border flex w-full flex-col items-center bg-white px-5 py-16 text-center">
     <div class="space-y-4">

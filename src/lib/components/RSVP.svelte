@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Envelop from "$lib/assets/envelop.png"
-	
+	import FadeIn from "$lib/components/FadeIn.svelte";
+
     let attendance: "accepted" | "rejected" = "accepted"
     let guestNumber = 1
     let message = ""
@@ -10,53 +11,51 @@
 <div class="rsvp-form " >
 
 	<div class="text-center ">
-		<h1 class="h1 text-(--primary) mt-6">Kindly Reply</h1>
-		<img src={Envelop}  alt="envelop"  class="w-[150px] h-[150px] object-contain mx-auto "/>
-		<h2 class="h2 text-(--primary)">WE LOOK FORWARD TO CELEBRATING WITH YOU</h2>
-		<h2 class="h2 text-(--primary) mt-3">Please let us know if you will be joining us for this beautiful celebration.</h2>
+		<FadeIn><h1 class="h1 text-(--primary) mt-6">Kindly Reply</h1></FadeIn>
+		<FadeIn><img src={Envelop}  alt="envelop"  class="w-[150px] h-[150px] object-contain mx-auto "/></FadeIn>
+		<FadeIn><h2 class="h2 text-(--primary)">WE LOOK FORWARD TO CELEBRATING WITH YOU</h2></FadeIn>
+		<FadeIn><h2 class="h2 text-(--primary) mt-3">Please let us know if you will be joining us for this beautiful celebration.</h2></FadeIn>
 	</div>
  
     <div class="field">
-        <input id="fullName" type="text" placeholder="Your Name"/>
+       <FadeIn><input id="fullName" type="text" placeholder="Your Name"/></FadeIn>
     </div>
 
     <div class="field">
-        <input id="email" type="email" placeholder="Your Email"/>
+        <FadeIn><input id="email" type="email" placeholder="Your Email"/></FadeIn>
     </div>
 
     <div class="field">
-        <input id="phoneNumber" type="tel" placeholder="+961 ..."/>
+        <FadeIn><input id="phoneNumber" type="tel" placeholder="+961 ..."/></FadeIn>
     </div>
 
     <div class="attendance">
-        <span class="field-label">Attending </span>
-        <div class="attendance-buttons">
+        <FadeIn><span class="field-label">Attending </span></FadeIn>
+        <FadeIn><div class="attendance-buttons">
             <button type="button"> Accept</button>
             <button type="button"> Decline</button>
-        </div>
+        </div></FadeIn>
     </div>
 
 
     <!-- Guests -->
     <div class="field">
-        <label for="guests">Number of Guests</label>
-        <input id="number" type="number"/>
+       	<FadeIn><label for="guests">Number of Guests</label></FadeIn>
+    	<FadeIn><input id="number" type="number"/></FadeIn>
     </div>
 
 
     <!-- Message -->
     <div class="field message-field">
-        <label for="message">Message</label>
+        <FadeIn><label for="message">Message</label></FadeIn>
 
-        <textarea
+       <FadeIn><textarea
             id="message"
             bind:value={message}
             placeholder="Leave us a little note..."
-        ></textarea>
+        ></textarea></FadeIn>
     </div>
-
-    <button class="submit-button" type="submit"> Kindly Reply </button>
-
+    <FadeIn><button class="submit-button" type="submit"> Kindly Reply </button></FadeIn>
 </div>
 
 <style>

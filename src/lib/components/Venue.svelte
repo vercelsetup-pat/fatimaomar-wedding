@@ -1,6 +1,6 @@
 <script lang="ts">
 	import venueImage from '$lib/assets/venue.png';
-	import FadeIn from "$lib/components/FadeIn.svelte"
+	import FadeIn from "$lib/components/FadeIn.svelte";
 
 	function openLocation() {
 		window.open(
