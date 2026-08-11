@@ -122,7 +122,7 @@
         box-sizing: border-box;
     }
 
-    .count-item {
+   .count-item {
         min-width: 0;
         display: flex;
         flex-direction: column;
@@ -130,6 +130,7 @@
         justify-content: center;
         text-align: center;
         box-sizing: border-box;
+        overflow: visible;
     }
 
     .number {
@@ -137,10 +138,12 @@
         font-family: "Italianno", cursive;
         font-size: clamp(34px, 9vw, 58px);
         font-weight: 400;
-        line-height: 1;
+        line-height: 1.25;
         color: var(--primary);
         white-space: nowrap;
         box-sizing: border-box;
+        overflow: visible;
+        padding-top: 0.08em;
     }
 
 
@@ -166,6 +169,8 @@
 
         .number {
             font-size: clamp(38px, 8vw, 50px);
+            line-height: 1.25;
+            padding-top: 0.08em;
         }
 
         .label {
@@ -190,9 +195,9 @@
 
         .number {
             font-size: clamp(34px, 11vw, 44px);
-            line-height: 1;
+            line-height: 1.25;
+            padding-top: 0.08em;
         }
-
         .label {
             margin-top: 7px;
 
