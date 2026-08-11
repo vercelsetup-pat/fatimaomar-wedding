@@ -88,23 +88,23 @@
 
     <div class="countdown">
         <div class="count-item">
-            <FadeIn><span class="number">{formatNumber(days)}</span></FadeIn>
-             <FadeIn><span class="label">{translations[$language].days}</span></FadeIn>
+            <span class="number">{formatNumber(days)}</span>
+            <span class="label">{translations[$language].days}</span>
         </div>
 
         <div class="count-item">
-            <FadeIn><span class="number">{formatNumber(hours)}</span></FadeIn>
-            <FadeIn><span class="label">{translations[$language].hours}</span></FadeIn>
+            <span class="number">{formatNumber(hours)}</span>
+            <span class="label">{translations[$language].hours}</span>
         </div>
 
         <div class="count-item">
-            <FadeIn><span class="number">{formatNumber(minutes)}</span></FadeIn>
-            <FadeIn><span class="label">{translations[$language].minutes}</span></FadeIn>
+            <span class="number">{formatNumber(minutes)}</span>
+            <span class="label">{translations[$language].minutes}</span>
         </div>
 
         <div class="count-item">
-            <FadeIn><span class="number">{formatNumber(seconds)}</span></FadeIn>
-            <FadeIn><span class="label"> {translations[$language].seconds} </span></FadeIn>
+            <span class="number">{formatNumber(seconds)}</span>
+            <span class="label"> {translations[$language].seconds} </span>
         </div>
     </div>
 </section>
