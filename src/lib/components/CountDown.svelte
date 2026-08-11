@@ -60,7 +60,11 @@
 
 <section class="box-border flex w-full flex-col items-center bg-white px-5 py-16 text-center">
     <div class="space-y-4">
-        <FadeIn><h1 class="h1 text-(--secondary)">{translations[$language].countitle1}</h1></FadeIn>
+        <FadeIn>
+            <h1 class="h1 text-(--secondary)" class:arabic={$language === "ar"} class:english={$language === "en"}>
+                {translations[$language].countitle1}
+            </h1>
+        </FadeIn>
         <FadeIn>
             <h2 class="h2 text-(--secondary)">
                 {translations[$language].countitle2}<br />
@@ -73,7 +77,7 @@
     </div>
 
     <div class="space-y-4 mt-6">
-       <FadeIn><h1 class="h1 text-(--secondary)"> {translations[$language].countDown}</h1></FadeIn>
+       <FadeIn><h1 class="h1 text-(--secondary)" class:arabic={$language === "ar"} class:english={$language === "en"}> {translations[$language].countDown}</h1></FadeIn>
        <FadeIn>
             <h2 class="h2 text-(--primary)">
                 {translations[$language].moment}<br />

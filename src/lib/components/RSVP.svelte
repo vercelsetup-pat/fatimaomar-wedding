@@ -12,7 +12,7 @@
 <div class="rsvp-form">
 
 	<div class="text-center ">
-		<FadeIn><h1 class="h1 text-(--primary) mt-6">{translations[$language].reply}</h1></FadeIn>
+		<FadeIn><h1 class="h1 text-(--primary) mt-6" class:arabic={$language === "ar"} class:english={$language === "en"}>{translations[$language].reply}</h1></FadeIn>
 		<FadeIn><img src={Envelop}  alt="envelop"  class="w-[150px] h-[150px] object-contain mx-auto "/></FadeIn>
 		<FadeIn><h2 class="h2 text-(--primary)">{translations[$language].rsvptext1}</h2></FadeIn>
 		<FadeIn><h2 class="h2 text-(--primary) mt-3">{translations[$language].rsvptext2}</h2></FadeIn>

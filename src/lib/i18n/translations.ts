@@ -33,7 +33,6 @@ export const translations = {
         message: "Message to the Couple",
         message_placeholder: "Share your wishes with the happy couple...",
         confirm: "Confirm Your RSVP"
-
     },
     ar: {
         countitle1: "أهلنا وأصدقاؤنا الأعزاء",
@@ -69,6 +68,5 @@ export const translations = {
         message: "رسالة إلى العروسين",
         message_placeholder: "شارك العروسين السعيدين أمنياتك...",
         confirm:"تاكيد الحضور"
-
     }
 };
