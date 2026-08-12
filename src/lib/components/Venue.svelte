@@ -35,7 +35,7 @@
 			<FadeIn><h1 class="h1 text-white" class:arabic={$language === "ar"} class:english={$language === "en"}>{translations[$language].details}</h1></FadeIn>
 			<FadeIn>
 				<h2 class=" text-white mt-4">
-					7:00 PM<br />
+					7:30 PM<br />
 					Jupiter Bnachei<br/>
 				</h2>
 			</FadeIn>

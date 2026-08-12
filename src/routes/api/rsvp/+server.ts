@@ -64,10 +64,7 @@ export async function POST({ request }) {
 
             finalGuestNumber = guests;
         }
-
-        // -------------------------
-        // Optional fields
-        // -------------------------
+  
         const finalEmail =
             typeof email === 'string' && email.trim()
                 ? email.trim()
@@ -85,9 +82,6 @@ export async function POST({ request }) {
                 ? message.trim()
                 : null;
 
-        // -------------------------
-        // Save to Neon
-        // -------------------------
         const [rsvp] = await db
             .insert(rsvps)
             .values({
