@@ -32,12 +32,17 @@
 
     <meta
         property="og:image"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png?v=2"
+        content="https://fatimaomar-wedding.vercel.app/og-image.png"
+    />
+
+    <meta
+        property="og:image:url"
+        content="https://fatimaomar-wedding.vercel.app/og-image.png"
     />
 
     <meta
         property="og:image:secure_url"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png?v=2"
+        content="https://fatimaomar-wedding.vercel.app/og-image.png"
     />
 
     <meta
@@ -47,12 +52,22 @@
 
     <meta
         property="og:image:width"
-        content="667"
+        content="1200"
     />
 
     <meta
         property="og:image:height"
-        content="1000"
+        content="630"
+    />
+
+    <meta
+        property="og:image:alt"
+        content="Omar and Fatima Wedding Invitation"
+    />
+
+    <meta
+        property="og:site_name"
+        content="Omar & Fatima Wedding"
     />
 
     <!-- Twitter -->
@@ -73,7 +88,12 @@
 
     <meta
         name="twitter:image"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png?v=2"
+        content="https://fatimaomar-wedding.vercel.app/og-image.png"
+    />
+
+    <meta
+        name="twitter:image:alt"
+        content="Omar and Fatima Wedding Invitation"
     />
 </svelte:head>
 
