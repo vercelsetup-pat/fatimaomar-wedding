@@ -12,8 +12,8 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Omar & Fatima Wedding" />
 	<meta property="og:description" content="23 August 2026 • Jupiter Bnachei Lebanon"/>
-	<meta property="og:image" content="https://fatimaomar-wedding.vercel.app/envEn1.jpeg"/>
-	<meta property="og:image:secure_url" content="https://fatimaomar-wedding.vercel.app/envEn1.jpeg"/>
+	<meta property="og:image" content="https://fatimaomar-wedding.vercel.app/envAr.jpeg"/>
+	<meta property="og:image:secure_url" content="https://fatimaomar-wedding.vercel.app/envAr.jpeg"/>
 
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
@@ -24,7 +24,7 @@
 	<meta name="twitter:card" content="summary_large_image"/>
 	<meta name="twitter:title" content="Omar & Fatima Wedding"/>
 	<meta name="twitter:description" content="23 August 2026 Jupiter Bnachei, Lebanon"/>
-	<meta name="twitter:image" content="https://fatimaomar.vercel.app/envEn1.jpeg"/>
+	<meta name="twitter:image" content="https://fatimaomar.vercel.app/envAr.jpeg"/>
 </svelte:head>
 
 {@render children()}
