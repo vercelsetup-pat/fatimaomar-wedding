@@ -32,17 +32,17 @@
 
     <meta
         property="og:image"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/card.png"
     />
 
     <meta
         property="og:image:url"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/card.png"
     />
 
     <meta
         property="og:image:secure_url"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/card.png"
     />
 
     <meta
@@ -88,7 +88,7 @@
 
     <meta
         name="twitter:image"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/card.png"
     />
 
     <meta
