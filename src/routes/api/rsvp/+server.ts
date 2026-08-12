@@ -100,9 +100,6 @@ export async function POST({ request }) {
             })
             .returning();
 
-        // -------------------------
-        // Success
-        // -------------------------
         return json(
             {
                 success: true,
