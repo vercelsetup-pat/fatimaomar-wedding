@@ -24,6 +24,6 @@
 	<meta name="twitter:card" content="summary_large_image"/>
 	<meta name="twitter:title" content="Omar & Fatima Wedding"/>
 	<meta name="twitter:description" content="23 August 2026 Jupiter Bnachei, Lebanon"/>
-	<meta name="twitter:image" content="https://fatimaomar-wedding.vercel.app/envAr.jpeg"/>
+	<meta name="twitter:image" content="https://fatimaomar-wedding.vercel.app/envAr.png"/>
 </svelte:head>
 {@render children()}
