@@ -23,16 +23,11 @@
 	letter-spacing: 0.3px;
 }
 
-.footer .brand,
-.footer .partner {
+.footer .brand{
 	color: #964b54;
 	font-weight: 600;
 }
 
-.footer .collaboration {
-	font-size: 0.85rem;
-	color: #a89b9c;
-}
 
 @media (max-width: 640px) {
 	.footer {
@@ -41,10 +36,6 @@
 
 	.footer p {
 		font-size: 0.85rem;
-	}
-
-	.footer .collaboration {
-		font-size: 0.8rem;
 	}
 }
 </style>
