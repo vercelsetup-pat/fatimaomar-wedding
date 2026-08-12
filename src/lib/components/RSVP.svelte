@@ -183,7 +183,6 @@
 
     <!-- Attendance -->
     <div class="attendance">
-
         <FadeIn>
             <span
                 class="field-label"
@@ -245,7 +244,8 @@
                     type="number"
                     bind:value={guestNumber}
                     min="1"
-                     dir={$language === "ar" ? "rtl" : "ltr"}
+                    dir={$language === "ar" ? "rtl" : "ltr"}
+                    class:arabic-number={$language === "ar"}
                 />
             </FadeIn>
 
@@ -376,6 +376,14 @@
         padding-left: 5px;
     }
 
+    .field input[type="number"].arabic-number {
+        direction: rtl;
+        text-align: right;
+    }
+    .field input[type="number"].arabic-number {
+    direction: rtl;
+    text-align: right;
+}
     .message-field textarea {
         min-height: 75px;
         resize: none;
