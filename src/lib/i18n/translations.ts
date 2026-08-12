@@ -29,7 +29,7 @@ export const translations = {
         attending: "Attending",
         accept: "Jofully Aceept",
         decline: "Regretfully decline",
-        numguests: "Number of Guests",
+        numguests: "Number of Guests Children are no permitted",
         message: "Message to the Couple",
         message_placeholder: "Share your wishes with the happy couple...",
         confirm: "Confirm Your RSVP"
@@ -64,7 +64,7 @@ export const translations = {
         attending: "الحضور",
         accept:"مقبول",
         decline: "أعتذر عن عدم القبول",
-        numguests: "عدد الضيوف",
+        numguests:"عدد الضيوف (ممنوع حضور الأطفال)",
         message: "رسالة إلى العروسين",
         message_placeholder: "شارك العروسين السعيدين أمنياتك...",
         confirm:"تاكيد الحضور"

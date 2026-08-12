@@ -390,6 +390,7 @@
         line-height: 1.5;
     }
 
+
     .attendance {
         width: 100%;
     }
