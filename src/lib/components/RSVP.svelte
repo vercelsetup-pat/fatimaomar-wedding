@@ -337,6 +337,13 @@
         line-height: 1;
     }
 
+    /* Arabic labels */
+    .field label[dir="rtl"],
+    .field-label[dir="rtl"] {
+        font-family: "Amiri", serif;
+        font-size: 16px;
+    }
+
     .field input,
     .field textarea {
         width: 100%;
