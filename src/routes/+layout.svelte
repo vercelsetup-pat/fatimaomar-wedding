@@ -12,7 +12,7 @@
         content="Join Omar & Fatima wedding on 23 August 2026 at Jupiter Bnachei, Lebanon."
     />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / WhatsApp -->
     <meta property="og:type" content="website" />
 
     <meta
@@ -32,17 +32,17 @@
 
     <meta
         property="og:image"
-        content="https://fatimaomar-wedding.vercel.app/og-image.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png"
     />
 
     <meta
         property="og:image:url"
-        content="https://fatimaomar-wedding.vercel.app/og-image.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png"
     />
 
     <meta
         property="og:image:secure_url"
-        content="https://fatimaomar-wedding.vercel.app/og-image.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png"
     />
 
     <meta
@@ -52,12 +52,12 @@
 
     <meta
         property="og:image:width"
-        content="1200"
+        content="667"
     />
 
     <meta
         property="og:image:height"
-        content="630"
+        content="1000"
     />
 
     <meta
@@ -70,7 +70,7 @@
         content="Omar & Fatima Wedding"
     />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta
         name="twitter:card"
         content="summary_large_image"
@@ -88,7 +88,7 @@
 
     <meta
         name="twitter:image"
-        content="https://fatimaomar-wedding.vercel.app/og-image.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png"
     />
 
     <meta
