@@ -4,6 +4,7 @@
     import CountDown from "$lib/components/CountDown.svelte";
     import Venue from "$lib/components/Venue.svelte";
     import RSVP from "$lib/components/RSVP.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 
     let music: HTMLAudioElement | null = null;
 
@@ -104,6 +105,7 @@
         <CountDown/>
        <Venue/>
        <RSVP/>
+       <Footer/>
     </div>
 </div>
 
