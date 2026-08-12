@@ -1,7 +1,7 @@
 <script lang="ts">
-	import './layout.css';
+    import './layout.css';
 
-	let { children } = $props();
+    let { children } = $props();
 </script>
 
 <svelte:head>
@@ -26,13 +26,18 @@
     />
 
     <meta
+        property="og:url"
+        content="https://fatimaomar-wedding.vercel.app/"
+    />
+
+    <meta
         property="og:image"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png?v=2"
     />
 
     <meta
         property="og:image:secure_url"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png?v=2"
     />
 
     <meta
@@ -42,17 +47,12 @@
 
     <meta
         property="og:image:width"
-        content="1200"
+        content="667"
     />
 
     <meta
         property="og:image:height"
-        content="630"
-    />
-
-    <meta
-        property="og:url"
-        content="https://fatimaomar-wedding.vercel.app/"
+        content="1000"
     />
 
     <!-- Twitter -->
@@ -73,7 +73,8 @@
 
     <meta
         name="twitter:image"
-        content="https://fatimaomar-wedding.vercel.app/envAr.png"
+        content="https://fatimaomar-wedding.vercel.app/envAr.png?v=2"
     />
 </svelte:head>
+
 {@render children()}
