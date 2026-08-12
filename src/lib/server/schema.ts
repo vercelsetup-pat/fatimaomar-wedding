@@ -20,10 +20,12 @@ export const rsvps = pgTable("rsvps", {
         length: 255
     }).notNull(),
 
+    // Optional
     email: varchar("email", {
         length: 255
     }),
 
+    // Optional
     phoneNumber: varchar("phone_number", {
         length: 50
     }),
@@ -32,10 +34,12 @@ export const rsvps = pgTable("rsvps", {
         .notNull()
         .default("accepted"),
 
+    // 0 when rejected, 1+ when accepted
     guestNumber: integer("guest_number")
         .notNull()
         .default(1),
 
+    // Optional
     message: text("message"),
 
     createdAt: timestamp("created_at", {
