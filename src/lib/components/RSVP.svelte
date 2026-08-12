@@ -245,7 +245,7 @@
                     type="number"
                     bind:value={guestNumber}
                     min="1"
-                    dir="ltr"
+                     dir={$language === "ar" ? "rtl" : "ltr"}
                 />
             </FadeIn>
 
