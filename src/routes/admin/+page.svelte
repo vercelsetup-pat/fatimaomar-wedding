@@ -1,6 +1,9 @@
 <script lang="ts">
 	let { data } = $props();
 
+	// Local copy of reservations so deletes update the UI immediately
+	let reservations = $state(data.reservations);
+
 	let search = $state('');
 	let attendanceFilter = $state<'all' | 'accepted' | 'rejected'>('all');
 	let view = $state<'table' | 'list'>('table');
@@ -10,6 +13,9 @@
 	let currentPage = $state(1);
 	let pageSize = $state(10);
 
+	// Delete state
+	let deletingId = $state<number | null>(null);
+
 	const formatDate = (date: Date | string) => {
 		return new Date(date).toLocaleString('en-US', {
 			dateStyle: 'medium',
@@ -18,7 +24,7 @@
 	};
 
 	const filtered = $derived(
-		data.reservations.filter((reservation) => {
+		reservations.filter((reservation) => {
 			const matchesAttendance =
 				attendanceFilter === 'all' || reservation.attendance === attendanceFilter;
 
@@ -62,6 +68,33 @@
 	const toggleExpanded = (id: number) => {
 		expandedId = expandedId === id ? null : id;
 	};
+
+	// Delete a reservation via the DELETE API, then update local state
+	async function deleteReservation(id: number) {
+		if (!confirm('Delete this reservation? This cannot be undone.')) return;
+
+		deletingId = id;
+
+		try {
+			const res = await fetch(`/api/rsvp/${id}`, { method: 'DELETE' });
+			const result = await res.json();
+
+			if (!result.success) {
+				alert(result.message || 'Failed to delete reservation.');
+				return;
+			}
+
+			// Remove from local list so the UI updates immediately
+			reservations = reservations.filter((r) => r.id !== id);
+
+			if (expandedId === id) expandedId = null;
+		} catch (err) {
+			console.error('Delete RSVP error:', err);
+			alert('Something went wrong while deleting.');
+		} finally {
+			deletingId = null;
+		}
+	}
 </script>
 
 <svelte:head>
@@ -83,7 +116,7 @@
 			<div class="stats">
 				<div class="total">
 					<span>{filtered.length}</span>
-					<small>{filtered.length === data.reservations.length ? 'Reservations' : `of ${data.reservations.length}`}</small>
+					<small>{filtered.length === reservations.length ? 'Reservations' : `of ${reservations.length}`}</small>
 				</div>
 
 				<div class="total">
@@ -261,6 +294,16 @@
 								<div class="detail message-detail">
 									<small>Message</small>
 									<span>{reservation.message || '—'}</span>
+								</div>
+
+								<div class="detail message-detail delete-detail">
+									<button
+										class="delete-btn"
+										onclick={() => deleteReservation(reservation.id)}
+										disabled={deletingId === reservation.id}
+									>
+										{deletingId === reservation.id ? 'Deleting…' : 'Delete Reservation'}
+									</button>
 								</div>
 							</div>
 						{/if}
@@ -678,6 +721,32 @@
 
 	.message-detail {
 		grid-column: 1 / -1;
+	}
+
+	.delete-detail {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.delete-btn {
+		border: 1px solid #e0a8a8;
+		background: #fdf1f1;
+		color: #a44b4b;
+		font-size: 13px;
+		font-weight: 600;
+		padding: 8px 14px;
+		border-radius: 8px;
+		cursor: pointer;
+		transition: background 0.15s ease;
+	}
+
+	.delete-btn:hover:not(:disabled) {
+		background: #f8e0e0;
+	}
+
+	.delete-btn:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
 
 	/* Pagination */
