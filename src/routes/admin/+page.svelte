@@ -6,6 +6,10 @@
 	let view = $state<'table' | 'list'>('table');
 	let expandedId = $state<number | null>(null);
 
+	// Pagination state
+	let currentPage = $state(1);
+	let pageSize = $state(10);
+
 	const formatDate = (date: Date | string) => {
 		return new Date(date).toLocaleString('en-US', {
 			dateStyle: 'medium',
@@ -29,6 +33,32 @@
 		})
 	);
 
+	// Total guest count across the currently filtered reservations
+	const totalGuests = $derived(
+		filtered.reduce((sum, reservation) => sum + (reservation.guestNumber || 0), 0)
+	);
+
+	// Pagination derived values
+	const totalPages = $derived(Math.max(1, Math.ceil(filtered.length / pageSize)));
+
+	const paginated = $derived(
+		filtered.slice((currentPage - 1) * pageSize, (currentPage - 1) * pageSize + pageSize)
+	);
+
+	const pageStart = $derived(filtered.length === 0 ? 0 : (currentPage - 1) * pageSize + 1);
+	const pageEnd = $derived(Math.min(currentPage * pageSize, filtered.length));
+
+	// Reset to page 1 whenever the filtered results change (search/filter/view)
+	$effect(() => {
+		filtered;
+		currentPage = 1;
+	});
+
+	const goToPage = (page: number) => {
+		if (page < 1 || page > totalPages) return;
+		currentPage = page;
+	};
+
 	const toggleExpanded = (id: number) => {
 		expandedId = expandedId === id ? null : id;
 	};
@@ -50,9 +80,16 @@
 				<p>People who submitted their wedding RSVP</p>
 			</div>
 
-			<div class="total">
-				<span>{filtered.length}</span>
-				<small>{filtered.length === data.reservations.length ? 'Reservations' : `of ${data.reservations.length}`}</small>
+			<div class="stats">
+				<div class="total">
+					<span>{filtered.length}</span>
+					<small>{filtered.length === data.reservations.length ? 'Reservations' : `of ${data.reservations.length}`}</small>
+				</div>
+
+				<div class="total">
+					<span>{totalGuests}</span>
+					<small>Total Guests</small>
+				</div>
 			</div>
 		</div>
 
@@ -138,7 +175,7 @@
 					</thead>
 
 					<tbody>
-						{#each filtered as reservation}
+						{#each paginated as reservation}
 							<tr>
 								<td>{reservation.id}</td>
 
@@ -233,6 +270,56 @@
 				{/each}
 			</div>
 		{/if}
+
+		{#if view === 'table' && filtered.length > 0}
+			<div class="pagination">
+				<div class="pagination-info">
+					Showing {pageStart}–{pageEnd} of {filtered.length}
+				</div>
+
+				<div class="pagination-controls">
+					<button
+						class="page-btn"
+						onclick={() => goToPage(currentPage - 1)}
+						disabled={currentPage === 1}
+						aria-label="Previous page"
+					>
+						‹
+					</button>
+
+					{#each Array(totalPages) as _, i}
+						{@const page = i + 1}
+						{#if page === 1 || page === totalPages || Math.abs(page - currentPage) <= 1}
+							<button
+								class="page-btn"
+								class:active={page === currentPage}
+								onclick={() => goToPage(page)}
+							>
+								{page}
+							</button>
+						{:else if page === currentPage - 2 || page === currentPage + 2}
+							<span class="ellipsis">…</span>
+						{/if}
+					{/each}
+
+					<button
+						class="page-btn"
+						onclick={() => goToPage(currentPage + 1)}
+						disabled={currentPage === totalPages}
+						aria-label="Next page"
+					>
+						›
+					</button>
+				</div>
+
+				<select class="page-size" bind:value={pageSize} aria-label="Rows per page">
+					<option value={10}>10 / page</option>
+					<option value={25}>25 / page</option>
+					<option value={50}>50 / page</option>
+					<option value={100}>100 / page</option>
+				</select>
+			</div>
+		{/if}
 	</div>
 </div>
 
@@ -266,6 +353,11 @@
 	.admin-header p {
 		margin: 8px 0 0;
 		color: #777;
+	}
+
+	.stats {
+		display: flex;
+		gap: 12px;
 	}
 
 	.total {
@@ -588,6 +680,79 @@
 		grid-column: 1 / -1;
 	}
 
+	/* Pagination */
+
+	.pagination {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin-top: 20px;
+		padding: 14px 18px;
+		background: white;
+		border: 1px solid #eadeda;
+		border-radius: 12px;
+	}
+
+	.pagination-info {
+		color: #927670;
+		font-size: 13px;
+		white-space: nowrap;
+	}
+
+	.pagination-controls {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.page-btn {
+		min-width: 32px;
+		height: 32px;
+		padding: 0 8px;
+		border: 1px solid #e6d7d3;
+		background: white;
+		color: #70433c;
+		border-radius: 8px;
+		font-size: 13px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background 0.15s ease, color 0.15s ease;
+	}
+
+	.page-btn:hover:not(:disabled) {
+		background: #f7efed;
+	}
+
+	.page-btn.active {
+		background: #9d5a4f;
+		color: white;
+		border-color: #9d5a4f;
+	}
+
+	.page-btn:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	.ellipsis {
+		color: #b79b94;
+		padding: 0 4px;
+		font-size: 13px;
+	}
+
+	.page-size {
+		border: 1px solid #e6d7d3;
+		border-radius: 8px;
+		background: white;
+		color: #70433c;
+		font-size: 13px;
+		font-weight: 600;
+		padding: 6px 8px;
+		cursor: pointer;
+	}
+
 	@media (max-width: 600px) {
 		.admin-page {
 			padding: 25px 12px;
@@ -623,6 +788,16 @@
 		.view-toggle button {
 			flex: 1;
 			justify-content: center;
+		}
+
+		.pagination {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.pagination-controls {
+			justify-content: center;
+			flex-wrap: wrap;
 		}
 	}
 </style>
