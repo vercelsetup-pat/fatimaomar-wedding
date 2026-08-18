@@ -70,6 +70,47 @@
 			deletingId = null;
 		}
 	}
+
+	// Escape a value for safe inclusion in a CSV cell
+	function csvEscape(value: unknown): string {
+		const str = value === null || value === undefined ? '' : String(value);
+		if (/[",\n]/.test(str)) {
+			return `"${str.replace(/"/g, '""')}"`;
+		}
+		return str;
+	}
+
+	// Export the currently filtered reservations as a CSV report
+	// (excludes Message and Submitted columns, per requirements)
+	function exportReport() {
+		const headers = ['ID', 'Full Name', 'Email', 'Phone', 'Attendance', 'Guests'];
+
+		const rows = filtered.map((reservation) => [
+			reservation.id,
+			reservation.fullName,
+			reservation.email || '',
+			reservation.phoneNumber || '',
+			reservation.attendance,
+			reservation.guestNumber
+		]);
+
+		const csvContent = [headers, ...rows]
+			.map((row) => row.map(csvEscape).join(','))
+			.join('\n');
+
+		// Prepend BOM so Excel opens UTF-8 CSVs correctly
+		const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+		const url = URL.createObjectURL(blob);
+
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `rsvp-report-${new Date().toISOString().slice(0, 10)}.csv`;
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+
+		URL.revokeObjectURL(url);
+	}
 </script>
 
 <svelte:head>
@@ -98,6 +139,15 @@
 					<span>{totalGuests}</span>
 					<small>Total Guests</small>
 				</div>
+
+				<button class="export-btn" onclick={exportReport} aria-label="Export report">
+					<svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+						<path d="M10 3v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+						<path d="M6.5 8.5L10 12l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M3.5 14.5v1.2c0 .72.58 1.3 1.3 1.3h10.4c.72 0 1.3-.58 1.3-1.3v-1.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					Export
+				</button>
 			</div>
 		</div>
 
@@ -325,6 +375,7 @@
 
 	.stats {
 		display: flex;
+		align-items: center;
 		gap: 12px;
 	}
 
@@ -349,6 +400,33 @@
 	.total small {
 		color: #777;
 		white-space: nowrap;
+	}
+
+	.export-btn {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		height: 100%;
+		padding: 12px 18px;
+		border: 1px solid #9d5a4f;
+		background: #9d5a4f;
+		color: white;
+		border-radius: 12px;
+		font-size: 14px;
+		font-weight: 600;
+		cursor: pointer;
+		white-space: nowrap;
+		transition: background 0.15s ease, border-color 0.15s ease;
+	}
+
+	.export-btn svg {
+		width: 16px;
+		height: 16px;
+	}
+
+	.export-btn:hover {
+		background: #874d43;
+		border-color: #874d43;
 	}
 
 	/* Controls */
@@ -681,6 +759,17 @@
 
 		.admin-header {
 			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.stats {
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		.export-btn {
+			flex: 1 1 auto;
+			justify-content: center;
 		}
 
 		h1 {
